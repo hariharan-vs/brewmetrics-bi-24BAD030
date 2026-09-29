@@ -1,0 +1,25 @@
+table Dim_Store_Format
+	lineageTag: 32f3bca2-56f1-45eb-be4f-a9483ba53bc7
+
+	column store_format
+		dataType: string
+		lineageTag: e05561d2-182f-4158-a3f6-8749690e17c5
+		summarizeBy: none
+		sourceColumn: store_format
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Store_Format = m
+		mode: import
+		source =
+				let
+				    Source = Fact_Sales,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"store_format"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
