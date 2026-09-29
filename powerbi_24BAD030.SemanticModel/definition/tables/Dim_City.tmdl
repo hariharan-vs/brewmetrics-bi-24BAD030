@@ -1,6 +1,27 @@
 table Dim_City
 	lineageTag: 9b2656e5-ae18-4bda-b532-15f95fd2c6a3
 
+	measure 'MoM Sales Growth %' =
+			
+			VAR CurrentMonthSales =
+			    SUM ( Fact_Sales[sales_amount] )
+			VAR PreviousMonthSales =
+			    CALCULATE (
+			        SUM ( Fact_Sales[sales_amount] ),
+			        DATEADD ( Dim_Date[date], -1, MONTH )
+			    )
+			RETURN
+			    IF (
+			        ISBLANK ( PreviousMonthSales ) || PreviousMonthSales = 0,
+			        BLANK (),
+			        DIVIDE (
+			            CurrentMonthSales - PreviousMonthSales,
+			            PreviousMonthSales
+			        )
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 590b4450-402d-4c3b-b6d9-2aba9777b4ea
+
 	column city
 		dataType: string
 		lineageTag: 95e2c217-bc6b-4713-8c34-fbd8992786d9

@@ -21,10 +21,10 @@ table Dim_Date
 		dataType: int64
 		formatString: 0
 		lineageTag: 54abb183-bb33-4ea7-b989-4b3fb8ecb4c9
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Year
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column Month
 		dataType: int64
