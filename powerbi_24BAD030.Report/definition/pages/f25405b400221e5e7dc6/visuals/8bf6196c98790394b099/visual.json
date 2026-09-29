@@ -1,34 +1,20 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "e79a8a5574736b4ec8e7",
+  "name": "8bf6196c98790394b099",
   "position": {
-    "x": 727,
-    "y": 0,
-    "z": 4,
-    "height": 280,
-    "width": 706,
-    "tabOrder": 4
+    "x": 450,
+    "y": 191.66666666666669,
+    "z": 2,
+    "height": 140,
+    "width": 280,
+    "tabOrder": 2
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_City"
-                    }
-                  },
-                  "Property": "city"
-                }
-              },
-              "queryRef": "Dim_City.city",
-              "nativeQueryRef": "city"
-            },
             {
               "field": {
                 "Measure": {
@@ -45,6 +31,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_City"
+                  }
+                },
+                "Property": "Average Transaction Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true
@@ -52,21 +56,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5a3ae779a0275d440c98",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_City"
-              }
-            },
-            "Property": "city"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a1b57e93605560b3d430",
+        "name": "f8b95687997eb649c7d8",
         "field": {
           "Measure": {
             "Expression": {

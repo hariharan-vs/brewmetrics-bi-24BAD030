@@ -62,6 +62,19 @@ table Dim_City
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Total Sales' =
+			
+			SUM ( Fact_Sales[sales_amount] )
+		lineageTag: fea88f64-54be-4eb1-8ecd-b9f1133de19a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Quantity' =
+			
+			SUM ( Fact_Sales[quantity] )
+		formatString: 0
+		lineageTag: 5873e85e-9bb4-492e-95c2-7d6368f14ba1
+
 	column city
 		dataType: string
 		lineageTag: 95e2c217-bc6b-4713-8c34-fbd8992786d9

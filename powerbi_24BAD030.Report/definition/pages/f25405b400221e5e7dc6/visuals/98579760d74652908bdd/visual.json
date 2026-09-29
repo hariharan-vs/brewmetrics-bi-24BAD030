@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "3373ecc6c0c3109da368",
+  "name": "98579760d74652908bdd",
   "position": {
-    "x": 11,
-    "y": 580,
-    "z": 2,
-    "height": 280,
-    "width": 706,
-    "tabOrder": 2
+    "x": 1192,
+    "y": 122,
+    "z": 7,
+    "height": 210,
+    "width": 280,
+    "tabOrder": 7
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
@@ -27,32 +27,39 @@
                 }
               },
               "queryRef": "Dim_City.city",
-              "nativeQueryRef": "city"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_City"
-                    }
-                  },
-                  "Property": "City Sales Rank"
-                }
-              },
-              "queryRef": "Dim_City.City Sales Rank",
-              "nativeQueryRef": "City Sales Rank"
+              "nativeQueryRef": "city",
+              "active": true
             }
           ]
         }
       }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "2f158cc516be77b0b11d",
+        "name": "d4f632948674adbd8206",
         "field": {
           "Column": {
             "Expression": {
@@ -64,20 +71,6 @@
           }
         },
         "type": "Categorical"
-      },
-      {
-        "name": "992576d746e64d751c09",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_City"
-              }
-            },
-            "Property": "City Sales Rank"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
