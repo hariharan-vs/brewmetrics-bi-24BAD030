@@ -22,6 +22,22 @@ table Dim_City
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 590b4450-402d-4c3b-b6d9-2aba9777b4ea
 
+	measure 'Running Total Sales' =
+			
+			VAR CurrentDate =
+			    MAX ( Dim_Date[date] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Fact_Sales[sales_amount] ),
+			        FILTER (
+			            ALL ( Dim_Date ),
+			            Dim_Date[date] <= CurrentDate
+			        )
+			    )
+		lineageTag: 3b299c4a-e8bb-4817-8df2-fe0b099c5dc7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column city
 		dataType: string
 		lineageTag: 95e2c217-bc6b-4713-8c34-fbd8992786d9
