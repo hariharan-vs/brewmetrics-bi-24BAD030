@@ -70,3 +70,56 @@ No modification was required to the Copilot-generated DAX.
 Final Decision
 
 The Copilot-generated DAX was retained without modification.
+
+Measure 3: City Sales Rank
+Copilot Initial Suggestion
+City Sales Rank =
+RANKX (
+    ALLSELECTED ( Dim_City[city] ),
+    CALCULATE ( SUM ( Fact_Sales[sales_amount] ) ),
+    ,
+    DESC,
+    DENSE
+)
+Review / Correction
+
+The Copilot-generated DAX was reviewed and found to correctly rank cities based on total sales.
+
+ALLSELECTED ( Dim_City[city] ) provides the cities in the current selection for comparison while preserving other report filters.
+
+CALCULATE ( SUM ( Fact_Sales[sales_amount] ) ) evaluates total sales for each city.
+
+DESC ranks the highest sales value as rank 1.
+
+DENSE assigns the same rank to tied values without skipping the next rank.
+
+No modification was required to the Copilot-generated DAX.
+
+Final Decision
+
+The Copilot-generated DAX was retained without modification.
+
+Measure 4: Average Transaction Value
+Copilot Initial Suggestion
+Average Transaction Value =
+VAR TotalSales =
+    SUM ( Fact_Sales[sales_amount] )
+VAR TotalQuantity =
+    SUM ( Fact_Sales[quantity] )
+RETURN
+    DIVIDE ( TotalSales, TotalQuantity )
+Review / Correction
+
+The Copilot-generated DAX was reviewed and found to correctly calculate sales per unit of quantity.
+
+TotalSales calculates the total sales amount within the current report filter context.
+
+TotalQuantity calculates the total quantity within the current report filter context.
+
+DIVIDE calculates the ratio of total sales to total quantity and safely handles cases where the quantity is zero or blank.
+
+No modification was required to the Copilot-generated DAX.
+
+Final Decision
+
+The Copilot-generated DAX was retained without modification.
